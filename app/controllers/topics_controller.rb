@@ -6,7 +6,7 @@ class TopicsController < ApplicationController
 
   def new
     @topic = Topic.new
-    authorize @topics
+    authorize @topic
   end
 
   def show
