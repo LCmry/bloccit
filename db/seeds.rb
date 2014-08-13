@@ -32,7 +32,7 @@ end
 
 User.first.update_attributes(
   email: 'lc_monterey@hotmail.com',
-  password: 'helloworld',
+  password: 'helloworld'
 )
 
 puts "Seed finished"
