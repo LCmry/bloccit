@@ -1,0 +1,10 @@
+%h1 Edit Post
+.row
+  .col-md-4
+    %p Guidelines for posts
+    %ul
+      %li Make sure the it rhymes.
+      %li Don't use the letter "A".
+      %li The incessant use of hashtags will get you banned.
+  .col-md-8
+    = render partial: 'form', locals: { topic: @topic, post: @post }

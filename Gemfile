@@ -47,3 +47,6 @@ gem 'figaro'
 gem 'pundit'
 
 gem 'redcarpet'
+
+gem 'haml'
+
