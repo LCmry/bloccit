@@ -2,6 +2,10 @@
   = markdown @post.title
 .row
   .col-md-8
+    %small
+      = image_tag(@post.user.avatar.tiny.url) if @post.user.avatar?
+      submitted #{time_ago_in_words(@post.create_at)} ago by
+      \#{@post.user.name}
     %p
       = markdown @post.body
   .col-md-4
