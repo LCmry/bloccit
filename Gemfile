@@ -50,3 +50,6 @@ gem 'redcarpet'
 
 gem 'haml'
 
+gem 'carrierwave'
+
+gem 'mini_magick'
