@@ -21,6 +21,6 @@
 .row
   .col-md-4
     - if current_user
-      = render partial: 'comments/form', locals: {topic: @topic, post: @post}
+      = render partial: 'comments/form', locals: {post: @post}
     - else
       #{link_to "Sign in", new_user_session_path} to comment
