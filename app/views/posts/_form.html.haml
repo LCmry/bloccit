@@ -12,5 +12,12 @@
   = form_group_tag(post.errors[:body]) do
     = f.label :body
     = f.text_area :body, rows: 8, class: 'form-control', placeholder: "Enter post body"
+  = form_group_tag(post.errors[:image]) do
+    - if post.image?
+      %p Current Image
+      = image_tag(post.image.url) 
+    = f.label :image
+    = f.file_field :image
+    = f.hidden_field :image_cache
   .form-group
     = f.submit "Save", class: 'btn btn-success'
