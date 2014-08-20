@@ -10,12 +10,15 @@
     %br
     %p= image_tag(@post.image.large.url) if @post.image?
     %p= markdown @post.body
+  .col-md-4
+    - if policy(@post).edit?
+      = link_to "Edit", edit_topic_post_path(@topic, @post), class: 'btn btn-success'
 .row
   .col-md-4
     = render partial: 'comments/comment', locals: {comments: @comments}
 .row
   .col-md-4
-    = render partial: 'comments/form', locals: {topic: @topic, post: @post}
-  .col-md-4
-    - if policy(@post).edit?
-      = link_to "Edit", edit_topic_post_path(@topic, @post), class: 'btn btn-success'
+    - if current_user
+      = render partial: 'comments/form', locals: {topic: @topic, post: @post}
+    - else
+      #{link_to "Sign in", new_user_session_path} to comment
