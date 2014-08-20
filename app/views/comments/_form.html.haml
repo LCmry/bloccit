@@ -1,0 +1,6 @@
+= form_for [@topic, @post, @post.comments.build] do |f|
+  .form-group
+    = f.label :comment
+    = f.text_area :body, rows: 2, class: 'form-control', placeholder: "Enter a comment"
+  .form-group
+    = submit "Save", class: 'btn btn-success'
