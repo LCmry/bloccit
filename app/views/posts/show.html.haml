@@ -12,8 +12,10 @@
     %p= markdown @post.body
 .row
   .col-md-4
-  = render partial: 'comments/comment'
-  = render partial: 'comments/form'
+    = render partial: 'comments/comment', locals: {comments: @comments}
+.row
+  .col-md-4
+    = render partial: 'comments/form', locals: {topic: @topic, post: @post}
   .col-md-4
     - if policy(@post).edit?
       = link_to "Edit", edit_topic_post_path(@topic, @post), class: 'btn btn-success'
