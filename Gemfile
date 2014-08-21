@@ -36,6 +36,10 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+group :test do
+  gem 'rspec-rails'
+end
+
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
 
