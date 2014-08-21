@@ -1,7 +1,7 @@
-%h1
-  = markdown @post.title
 .row
   .col-md-8
+    = render partial: 'votes/voter', locals: { post: @post }
+    %h1= markdown @post.title
     %small
       = image_tag(@post.user.avatar.tiny.url) if @post.user.avatar?
       submitted #{time_ago_in_words(@post.created_at)} ago by
