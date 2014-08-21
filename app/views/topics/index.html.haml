@@ -8,6 +8,7 @@
             = link_to topic.name, topic
           %small
             = topic.description
+    = will_paginate @topics
   .col-md-4
     - if policy(Topic.new).create?
       = link_to "New Topic", new_topic_path, class: 'btn btn-success'
