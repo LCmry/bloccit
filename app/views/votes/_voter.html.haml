@@ -1,5 +1,5 @@
 .pull-left.vote-arrows
-  %div= link_to " ", '#', class: 'glyphicon glyphicon-chevron-up'
+  %div= link_to " ", post_up_vote_path(post), class: 'glyphicon glyphicon-chevron-up', method: :post
   %div
     %strong= post.points
-  %div= link_to " ", '#', class: 'glyphicon glyphicon-chevron-down'
+  %div= link_to " ", post_down_vote_path(post), class: 'glyphicon glyphicon-chevron-down', method: :post
