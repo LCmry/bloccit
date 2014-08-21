@@ -2,8 +2,14 @@
   = markdown @post.title
 .row
   .col-md-8
-    %p
-      = markdown @post.body
+    %small
+      = image_tag(@post.user.avatar.tiny.url) if @post.user.avatar?
+      submitted #{time_ago_in_words(@post.created_at)} ago by
+      \#{@post.user.name}
+    %br
+    %br
+    %p= image_tag(@post.image.large.url) if @post.image?
+    %p= markdown @post.body
   .col-md-4
     - if policy(@post).edit?
       = link_to "Edit", edit_topic_post_path(@topic, @post), class: 'btn btn-success'
