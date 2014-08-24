@@ -12,4 +12,8 @@ class User < ActiveRecord::Base
   def role?(base_role)
     role == base_role.to_s
   end
+
+  def voted(post)
+    votes.where(post_id: post.id).first
+  end
 end
