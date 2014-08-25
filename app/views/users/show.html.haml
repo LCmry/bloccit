@@ -1,0 +1,9 @@
+%h1= @user.name
+
+%h2 Posts
+- @posts.each do |post|
+  =post.title
+
+%h2 Comments
+- @comments.each do |comment|
+  = comment.body
