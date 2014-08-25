@@ -1,9 +1,24 @@
-%h1= @user.name
+.row
+  .col-md-8
+    .media
+      - if @user.avatar?
+        = image_tag @user.avatar.url, class: 'pull-left'
+      .media-body
+        %h2.media-heading= @user.name
+        %small
+          = pluralize(@user.posts.count, 'post')
+          = pluralize(@user.comments.count, 'comment')
+%br
 
-%h2 Posts
-- @posts.each do |post|
-  =post.title
-
-%h2 Comments
-- @comments.each do |comment|
-  = comment.body
+.row
+  .tabbable.tabs-left
+    %ul.nav.nav-tabs
+      %li.active
+        %a{"data-toggle" => "tab", :href => "#posts"} Posts
+      %li
+        %a{"data-toggle" => "tab", :href => "#comments"} Comments
+    .tab-content
+      .tab-pane.active#posts
+        = render @posts
+      .tab-pane#comments
+        = render @user.comments
