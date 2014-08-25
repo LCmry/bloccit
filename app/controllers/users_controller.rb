@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:show]
 
   def update
     if current_user.update_attributes(user_params)
@@ -8,6 +8,9 @@ class UsersController < ApplicationController
     else
       render "devise/registrations/edit"
     end
+  end
+
+  def show
   end
 
   private

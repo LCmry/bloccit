@@ -16,6 +16,7 @@ end
 group :development, :test do
   gem 'byebug'
   gem 'rspec-rails'
+  gem 'capybara'
 end
   
 # Use SCSS for stylesheets
