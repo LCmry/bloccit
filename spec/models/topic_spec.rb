@@ -9,13 +9,13 @@ describe Topic do
     end
 
     context "public_topic" do
-      it "returns a relation of all public topics" do
+      it "returns a public topic" do
         expect(Topic.public_topic).to eq( [@public_topic] )
       end
     end
 
     context "private_topic" do
-      it "returns a relation of all private topics" do
+      it "returns a private topic" do
         expect(Topic.private_topic).to eq( [@private_topic] )
       end
     end
