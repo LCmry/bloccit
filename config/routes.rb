@@ -6,13 +6,12 @@ Bloccit::Application.routes.draw do
     resources :users, only: [:update, :show]
 
   resources :topics do
-    resources :posts, except: [:index] 
+    resources :posts, except: [:index] , controller: 'topics/posts'
   end
 
-  resources :posts, only: [] do
-    resources :comments, only: [:create, :destroy] do
-      resources :favorites, only: [:create, :destroy]
-    end
+  resources :posts, only: [:index] do
+    resources :comments, only: [:create, :destroy] 
+    resources :favorites, only: [:create, :destroy]
   end
 
     post '/up-vote' => 'votes#up_vote', as: :up_vote
