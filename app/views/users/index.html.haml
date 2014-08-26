@@ -1,0 +1,7 @@
+.row
+  .col-md-8
+    %h1 Popular Users
+    %p.lead Most active users
+    = render partial: 'users/user', collection: @users
+    = will_paginate @users
+  .col-md-4
