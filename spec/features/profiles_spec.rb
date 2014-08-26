@@ -2,7 +2,9 @@ require 'rails_helper'
 
 describe "Visiting profiles" do
 
-  #include TestFactories
+  include TestFactories
+  include Warden::Test::Helpers
+  Warden.test_mode!
 
   before do
     @user = authenticated_user
@@ -22,25 +24,18 @@ describe "Visiting profiles" do
       expect( page ).to have_content(@post.title)
       expect( page ).to have_content(@comment.body)
     end
+  end
 
+  context "user signed in" do
+
+    it "shows profile" do
+      login_as(authenticated_user(options={role: 'admin'}), scope: :user)
+      visit user_path(@user)
+      expect(current_path).to eq(user_path(@user))
+
+      expect( page ).to have_content(@user.name)
+      expect( page ).to have_content(@post.title)
+      expect( page ).to have_content(@comment.body)
+    end
   end
 end
-
- def associated_post(options={})
-  post_options = {
-    title: 'Post title',
-    body: 'Post bodies must be pretty long.',
-    topic: Topic.create(name: 'Topic name'),
-    user: authenticated_user
-    }.merge(options)
-
-    Post.create(post_options)
-  end
-
-  def authenticated_user(options={})
-    user_options = {email: "email#{rand}@fake.com", password: 'password'}.merge(options)
-    user = User.new(user_options)
-    user.skip_confirmation!
-    user.save
-    user
-  end
