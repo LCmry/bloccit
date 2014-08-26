@@ -39,6 +39,10 @@
         = f.file_field :avatar
         = f.hidden_field :avatar_cache
       .form-group
+        = f.label :email_favorites
+        = f.check_box :email_favorites
+        %p.help-block Be notified for new comments on your favorites
+      .form-group
         = f.submit "Update", class: 'btn btn-success'
     %h3 Cancel my account
     .form-group

@@ -20,6 +20,7 @@
       %small
         = pluralize(@post.up_votes, 'up vote')
         = pluralize(@post.down_votes, 'down vote')
+    = render partial: 'favorites/favorite', locals: { post: @post }
 .row
   .col-md-4
     = render partial: 'comments/comment', locals: {comments: @comments}
