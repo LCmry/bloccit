@@ -23,6 +23,7 @@
     = render partial: 'favorites/favorite', locals: { post: @post }
 .row
   .col-md-4
+    %h4 Comments
     = render partial: 'comments/comment', collection: @comments
 .row
   .col-md-4
