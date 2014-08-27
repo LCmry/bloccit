@@ -23,7 +23,8 @@
     = render partial: 'favorites/favorite', locals: { post: @post }
 .row
   .col-md-4
-    = render partial: 'comments/comment', locals: {comments: @comments}
+    %h4 Comments
+    = render partial: 'comments/comment', collection: @comments
 .row
   .col-md-4
     - if current_user
