@@ -28,7 +28,7 @@ describe "Visiting profiles" do
   context "user signed in" do
 
     it "shows profile" do
-      login_as(create(:user, role: 'admin'), scope: :user)
+      login_as(create(:user, role: "admin"), scope: :user)
       visit user_path(@user)
       expect(current_path).to eq(user_path(@user))
 
