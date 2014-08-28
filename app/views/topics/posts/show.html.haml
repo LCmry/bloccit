@@ -24,10 +24,12 @@
 .row
   .col-md-4
     %h4 Comments
-    = render partial: 'comments/comment', collection: @comments
+    .js-comments
+      = render partial: 'comments/comment', collection: @comments
 .row
   .col-md-4
-    - if current_user
-      = render partial: 'comments/form', locals: {post: @post}
-    - else
-      #{link_to "Sign in", new_user_session_path} to comment
+    .new-comment
+      - if current_user
+        = render partial: 'comments/form', locals: {post: @post}
+      - else
+        #{link_to "Sign in", new_user_session_path} to comment
