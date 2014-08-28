@@ -7,9 +7,9 @@
         %h2.media-heading= @user.name
         %small
           = pluralize(@user.posts.count, 'post')
-          = pluralize(@user.comments.count, 'comment')
+          .js-comments-count
+            = pluralize(@user.comments.count, 'comment')
 %br
-
 .row
   .tabbable.tabs-left
     %ul.nav.nav-tabs
