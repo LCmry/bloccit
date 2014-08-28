@@ -3,20 +3,18 @@ require 'rails_helper'
 describe Topic do
   describe "scopes" do
 
-    before do
-      @public_topic = Topic.create
-      @private_topic = Topic.create(public: false)
-    end
+    let(:pub_topic) { Topic.create }
+    let(:priv_topic) { Topic.create(public: false) }
 
     context "public_topic" do
       it "returns a public topic" do
-        expect(Topic.public_topic).to eq( [@public_topic] )
+        expect(Topic.public_topic).to eq( [pub_topic] )
       end
     end
 
     context "private_topic" do
       it "returns a private topic" do
-        expect(Topic.private_topic).to eq( [@private_topic] )
+        expect(Topic.private_topic).to eq( [priv_topic] )
       end
     end
 
@@ -28,7 +26,7 @@ describe Topic do
 
       it "returns only public topics if user is nil" do
         user = nil
-        expect(Topic.visible_to(user)).to eq( [@public_topic] )
+        expect(Topic.visible_to(user)).to eq( [pub_topic] )
       end
     end
   end

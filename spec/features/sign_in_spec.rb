@@ -2,11 +2,9 @@ require 'rails_helper'
 
 describe "Sign in flow" do
 
-  include TestFactories
-
   context "successful" do
     it "redirects to the topics index" do
-      user = authenticated_user
+      user = create(:user)
       visit root_path
 
       within '.user-info' do
@@ -14,7 +12,7 @@ describe "Sign in flow" do
       end
 
       fill_in 'Email', with: user.email
-      fill_in "Password", with: user.password
+      fill_in 'Password', with: user.password
 
       within 'form' do
         click_button 'Sign in'
