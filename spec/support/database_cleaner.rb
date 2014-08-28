@@ -1,4 +1,4 @@
-RSpec.configue do |config|
+RSpec.configure do |config|
 
   # Empty the database before each test file
   config.before(:suite) do
