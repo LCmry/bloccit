@@ -2,8 +2,6 @@
 
 Made with my mentor at [Bloc](http://bloc.io).
 
-Bloccit can be found [here](http://lc-bloccit.herokuapp.com).
-
 ### Configuration
 
 #### Setting environmental variables
